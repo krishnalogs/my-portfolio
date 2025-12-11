@@ -1,4 +1,5 @@
 import { Cloud, Container, GitBranch, Wrench, Database, Shield, Code, Users } from 'lucide-react';
+import ScrollReveal from './ScrollReveal';
 
 const skillCategories = [
   {
@@ -68,7 +69,7 @@ const Skills = () => {
     <section id="skills" className="section-padding bg-muted/30">
       <div className="container-custom mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+        <ScrollReveal className="text-center mb-16">
           <div className="inline-flex items-center gap-2 text-primary mb-4">
             <span className="text-secondary">✦</span>
             <span className="text-sm font-semibold tracking-wider uppercase">My Skills</span>
@@ -77,38 +78,36 @@ const Skills = () => {
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
             Technical Expertise
           </h2>
-        </div>
+        </ScrollReveal>
 
         {/* Skills Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {skillCategories.map((category, index) => (
-            <div
-              key={category.title}
-              className="group bg-card rounded-2xl p-6 border border-border hover:border-primary/50 hover:shadow-lg transition-all duration-300 opacity-0 animate-scale-in"
-              style={{ animationDelay: `${0.1 + index * 0.05}s` }}
-            >
-              {/* Icon */}
-              <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${category.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                <category.icon className="w-6 h-6 text-white" />
-              </div>
+            <ScrollReveal key={category.title} direction="scale" delay={index * 50}>
+              <div className="group bg-card rounded-2xl p-6 border border-border hover:border-primary/50 hover:shadow-lg transition-all duration-300 h-full">
+                {/* Icon */}
+                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${category.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                  <category.icon className="w-6 h-6 text-white" />
+                </div>
 
-              {/* Title */}
-              <h3 className="font-display text-lg font-semibold text-foreground mb-4">
-                {category.title}
-              </h3>
+                {/* Title */}
+                <h3 className="font-display text-lg font-semibold text-foreground mb-4">
+                  {category.title}
+                </h3>
 
-              {/* Skills Tags */}
-              <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="px-3 py-1 text-xs font-medium bg-muted text-muted-foreground rounded-full hover:bg-primary hover:text-primary-foreground transition-colors cursor-default"
-                  >
-                    {skill}
-                  </span>
-                ))}
+                {/* Skills Tags */}
+                <div className="flex flex-wrap gap-2">
+                  {category.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="px-3 py-1 text-xs font-medium bg-muted text-muted-foreground rounded-full hover:bg-primary hover:text-primary-foreground transition-colors cursor-default"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

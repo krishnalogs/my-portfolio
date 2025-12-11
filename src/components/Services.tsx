@@ -1,5 +1,6 @@
 import { Cloud, GitBranch, Container, FileCode, Activity, Shield, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import ScrollReveal from './ScrollReveal';
 
 const services = [
   {
@@ -39,7 +40,7 @@ const Services = () => {
     <section id="services" className="section-padding bg-muted/30">
       <div className="container-custom mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+        <ScrollReveal className="text-center mb-16">
           <div className="inline-flex items-center gap-2 text-primary mb-4">
             <span className="text-secondary">✦</span>
             <span className="text-sm font-semibold tracking-wider uppercase">Services</span>
@@ -48,37 +49,35 @@ const Services = () => {
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
             What I Offer
           </h2>
-        </div>
+        </ScrollReveal>
 
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
-            <div
-              key={service.title}
-              className="group bg-card rounded-2xl p-6 border border-border hover:border-primary hover:bg-primary transition-all duration-300 opacity-0 animate-fade-in-up cursor-pointer"
-              style={{ animationDelay: `${0.2 + index * 0.1}s` }}
-            >
-              {/* Icon */}
-              <div className="w-14 h-14 rounded-2xl bg-primary/10 group-hover:bg-primary-foreground/10 flex items-center justify-center mb-5 transition-colors">
-                <service.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
+            <ScrollReveal key={service.title} delay={index * 80}>
+              <div className="group bg-card rounded-2xl p-6 border border-border hover:border-primary hover:bg-primary transition-all duration-300 cursor-pointer h-full">
+                {/* Icon */}
+                <div className="w-14 h-14 rounded-2xl bg-primary/10 group-hover:bg-primary-foreground/10 flex items-center justify-center mb-5 transition-colors">
+                  <service.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
+                </div>
+
+                {/* Content */}
+                <h3 className="font-display text-lg font-bold text-foreground group-hover:text-primary-foreground mb-3 transition-colors">
+                  {service.title}
+                </h3>
+                <p className="text-muted-foreground group-hover:text-primary-foreground/80 text-sm leading-relaxed mb-4 transition-colors">
+                  {service.description}
+                </p>
+
+                {/* Read More */}
+                <Button
+                  variant="ghost"
+                  className="p-0 h-auto text-primary group-hover:text-primary-foreground font-medium text-sm hover:bg-transparent"
+                >
+                  Learn More <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
               </div>
-
-              {/* Content */}
-              <h3 className="font-display text-lg font-bold text-foreground group-hover:text-primary-foreground mb-3 transition-colors">
-                {service.title}
-              </h3>
-              <p className="text-muted-foreground group-hover:text-primary-foreground/80 text-sm leading-relaxed mb-4 transition-colors">
-                {service.description}
-              </p>
-
-              {/* Read More */}
-              <Button
-                variant="ghost"
-                className="p-0 h-auto text-primary group-hover:text-primary-foreground font-medium text-sm hover:bg-transparent"
-              >
-                Learn More <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
