@@ -1,5 +1,6 @@
 import { ArrowRight, Download, Cloud, Server, GitBranch } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import profileImage from '@/assets/profile.jpg';
 
 const Hero = () => {
   return (
@@ -63,7 +64,7 @@ const Hero = () => {
                 variant="outline"
                 className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 rounded-full px-8 py-6 text-base font-semibold"
               >
-                <a href="#contact">
+                <a href="/resume.pdf" download="Mohana_Krishna_Bhogi_Resume.pdf">
                   <Download className="mr-2 w-4 h-4" /> View Resume
                 </a>
               </Button>
@@ -76,14 +77,13 @@ const Hero = () => {
               {/* Yellow Circle Background */}
               <div className="absolute -bottom-10 -right-10 w-72 h-72 md:w-96 md:h-96 bg-secondary rounded-full" />
               
-              {/* Profile Image Placeholder */}
-              <div className="relative z-10 w-64 h-80 md:w-80 md:h-96 bg-gradient-to-b from-primary-foreground/20 to-transparent rounded-t-full flex items-end justify-center overflow-hidden">
-                <div className="w-full h-full bg-gradient-to-t from-muted/30 to-transparent flex items-center justify-center">
-                  <div className="text-center text-primary-foreground/60">
-                    <Cloud className="w-20 h-20 mx-auto mb-4 opacity-50" />
-                    <p className="text-sm">Profile Picture</p>
-                  </div>
-                </div>
+              {/* Profile Image */}
+              <div className="relative z-10 w-64 h-80 md:w-80 md:h-96 rounded-t-full overflow-hidden shadow-2xl">
+                <img 
+                  src={profileImage} 
+                  alt="Mohana Krishna Bhogi - Cloud & DevOps Engineer" 
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
             </div>
           </div>

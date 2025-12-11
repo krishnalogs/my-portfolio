@@ -96,13 +96,17 @@ const Contact = () => {
             {/* Social Links */}
             <div className="flex gap-4 pt-4">
               <a
-                href="#"
+                href="https://www.linkedin.com/in/mohanakrishnabhogi/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-12 h-12 rounded-xl bg-primary-foreground/10 flex items-center justify-center hover:bg-secondary text-primary-foreground hover:text-secondary-foreground transition-colors"
               >
                 <Linkedin className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://github.com/mohanakrishnabhogi"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-12 h-12 rounded-xl bg-primary-foreground/10 flex items-center justify-center hover:bg-secondary text-primary-foreground hover:text-secondary-foreground transition-colors"
               >
                 <Github className="w-5 h-5" />
